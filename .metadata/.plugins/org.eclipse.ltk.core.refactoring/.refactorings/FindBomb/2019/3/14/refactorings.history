@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;make&apos; to &apos;com.make&apos;&#x0D;&#x0A;- Original project: &apos;FindBomb&apos;&#x0D;&#x0A;- Original element: &apos;FindBomb/src/make&apos;&#x0D;&#x0A;- Renamed element: &apos;FindBomb/src/com.make&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;make&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;make" name="com.make" qualified="false" references="true" stamp="1554011133524" textual="false" version="1.0"/>
+</session>

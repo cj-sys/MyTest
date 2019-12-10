@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 5 elements from project &apos;Java16_IO&apos;&#x0D;&#x0A;- Original project: &apos;Java16_IO&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Java16_IO/src/com.kh.io.fileTest&#x0D;&#x0A;     Java16_IO/src/com.kh.io.part01_byteStream&#x0D;&#x0A;     Java16_IO/src/com.kh.io.part02_charStream&#x0D;&#x0A;     Java16_IO/src/com.kh.io.part03_addStream&#x0D;&#x0A;     Java16_IO/src/com.kh.io.part04_objectStream" description="Delete elements" element1="/src&lt;com.kh.io.part04_objectStream" element2="/src&lt;com.kh.io.part03_addStream" element3="/src&lt;com.kh.io.part02_charStream" element4="/src&lt;com.kh.io.part01_byteStream" element5="/src&lt;com.kh.io.fileTest" elements="5" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1568808881923" subPackages="false" version="1.0"/>
+</session>

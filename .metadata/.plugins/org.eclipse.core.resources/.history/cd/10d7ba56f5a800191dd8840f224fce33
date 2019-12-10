@@ -1,0 +1,153 @@
+package skillup.collection.map.controller;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import skillup.collection.map.model.Cafe;
+
+public class MapTest {
+	public void mapTest() {
+		
+		//map 생성
+		Map map = new HashMap();
+	
+		//이전 List, Set 은 add(), Collection의 후손이기에 add() 사용
+		//map은 아니니까 put으로 데이터를 넣는다.
+		
+		System.out.println("===== put() =====");
+		//map에 객체 넣는다.
+		//2~3개 정도만 넣고 출력함.. 보여주고 다시 넣고~ 
+		map.put("아메리카노", new Cafe("커피", 2900));
+		map.put("얼그레이", new Cafe("차", 3000));
+		map.put("카페라떼", new Cafe("커피", 3600));
+		map.put("딸기스무디", new Cafe("스무디", 4000));
+		map.put("페퍼민트", new Cafe("차", 3000));
+		
+		System.out.println(map);
+		
+		//값은 중복 허용, 
+		//순서유지는 안됨
+		
+		//키가 중복되면 새로 넣은 값으로 덮어써짐
+		map.put("딸기스무디", new Cafe("스무디", 4400));
+		System.out.println(map);
+		System.out.println();
+		
+		//정해진 키 값이 잇으면 트루를 리턴한다.
+		System.out.println("contains===========================");
+		System.out.println("map.containsKey(\"아메리카노\"): "+map.containsKey("아메리카노"));
+		
+		//그러함 벨류값이 있으면 트루를 리턴하는것도 있겟져??
+		System.out.println("map.containsValue(new Cafe(\"차\",3000)): "+map.containsValue(new Cafe("차",3000)));
+		//당연히 false가 나옵니다.
+		//왜인줄은 알죠??? 
+		//그러면 뭘 해야 하는지도 알죠??
+		
+		
+		//예를들어서 같은 아이폰X인데.. 케이스가 달라여~ 우리들은 케이스가 다르더라도 아 저거는 둘다 아이폰 텐이구나~ 라고 알수있쬬??
+		//근데 폰에대해 잘 모르는 친구들이 스윽 보면 케이스 부터 다르니 아 두개는 다른거다~ 라고 생각을 할거다
+		//지금 비교하는것도 그렇다~ 우리가 봤을때는 new 로 데이터를 비교를 하는게 
+		//비교하는 데이터가 무엇인지 잘 알지만 컴퓨터가 봤을때는 그런걸 알수 는 없다
+		
+		//키값과 벨류값 둘다 비교를해야 하니 둘다 재정의...
+		//키값이 다르더라도  벨류값이 같을수도 잇으니 다 고려해서 비교해야한다.
+		
+		//equals와 hashCode 재정의
+		
+		System.out.println();
+		
+		System.out.println("===== map 뽑아내기=====");
+		//map은 list나 set처럼 안에 iterator를 가지고 있지 않다.
+		//collection의 후손이 아니기 때문에...
+		
+		System.out.println("==> 방법 1: keySet + Iterator");
+		//키값을 keySet을 통해 가져 온다. 
+		// 키값을 알면  map.get(key)를 통해서 벨류값을 가져 올수 있다.
+		Set keySet = map.keySet(); //key를 set으로 뽑아냄
+		Iterator keys = keySet.iterator(); //set으로 뽑아 냈기 때문에 set에 있는 iterator를 사용
+		while(keys.hasNext()) {
+			String key = (String)keys.next(); //Object반환형 이므로 형변환, 
+			//keySet은 set을 리턴하지만... 그 안에 들어있는 데이터타입은 Object 형이므로 형변환이 필요하다...
+			//제네릭이라는걸 배울텐데... 맵이나 셋에 사용될 데이터의 타입을 정하는 거다... 기본적인 데이터 타입을 정하는거다..
+			//정하지 않는다면 기본적으로 최상위 타입인 Object타입응ㄹ 반환한다.
+			
+			//스트링 타입으로 넣어도 오브젝트 타입으로 감싸져 있는거다
+			//set으로 받아오더라도 object 타입으로 가져오는 거다....
+			System.out.printf("키: %s, 값: %s\n",key,map.get(key));
+			
+		}
+		
+		System.out.println("\n\n");
+		
+		System.out.println("==>방법 2: keySet");
+		for(Object key : map.keySet()) {
+			/*
+			 * keySet의 반환타입은 Set인데 Set타입으로 받을 수 없는 이유
+			 * 담는 그릇이 Set일뿐 안의 내용은 Object이기 때문
+			 * Set이라는 주머니 안에 Object 타입의 데이터들이 들어있다.
+			 * 
+			 * 제네릭때 배우겟지만, 노란줄은 제네릭 타입을 명시하지 않아서 생기는것
+			 * 명시하지 않으면 자동적으로 Object가 됨, 그래서 Set안에 담기는 타입은 Object
+			 */
+			System.out.printf("키: %s, 값: %s\n",key,map.get(key));
+		}
+		
+		System.out.println("\n\n");
+		
+		/*** Map.Entry ***/
+		//Map 인터페이스의 내부에 선언된 Entry 활용
+		//import java.util.map.Entry; 를 하던지
+		//Map.entry로 사용하면 된다.
+		
+		
+		System.out.println("==>방법 3: ensrySet");
+		//Map.Entry는 Map 인터페이스 내부의 인터페이스로
+		//Map에 저장되는 key-value 쌍을 다루기 위해 내부적으로 Entry라는 인터페이스를 정의해놓은것
+		
+//		for(Map.Entry me : map.entrySet()) {
+//			System.out.printf("키: %s, 값: %s\n",me.getKey(),me.getValue());
+//		}
+		//이게 안되는 이유 - etnrySet을 하면서 그안에 있는 내용이 Object 타입으로 되어 있기 때문에
+		//저기서 Object로 하면 형이 맞아 에러는 안나지만 getXXX()를 불러올 수 없음.
+		//api를 확인 해 보면 Map.Entry 라는 인터페이스 안에 get 이 있음
+		
+		Set<Map.Entry> entry = map.entrySet();
+		//Set 안에 Map.Etry 타입만 넣을수 있다는 뜻. 이게 제네릭이죠~
+		//map.entrySet() 을 통 해 set에 k,v를 Map.Entry 타입으로 넣는다.
+		
+		for(Map.Entry me : entry) {
+			//Map.Etry 형태로 저장된 entry들을 하나씩 Map.Etnry타입의 me에 담아서 구현부 동작
+			System.out.printf("키: %s, 값: %s\n",me.getKey(),me.getValue());
+		}
+		//getKey 와 getValue로 확인할수 있듯이 키와 벨류를 각각 관리 가능하다.
+		//그전에는 키를 가져와서 그 키에 맞는 벨류에 접근하는 방법이었다.
+		
+		System.out.println("\n\n");
+		System.out.println("===== remove =====");
+		System.out.println(map.remove("페퍼민트")); // 케이 맞는 벨류값만 출력됨... 값이 리턴되면서 삭제가 된다
+		System.out.println(map);
+		
+		/*
+		 [[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]] 향상된포문 이해 안갈때...
+		String[] s = {"a","b", "c"};
+		
+		List<Score> listt = new ArrayList<Score>();
+		listt.add(new Score("홍길동",90,85,10));
+		listt.add(new Score("이순진",40,77,90));
+		listt.add(new Score("양영실",40,67,98));
+		listt.add(new Score("한석붕",90,100,60));
+		
+		for(Score l : listt) {
+			
+		}
+================]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+		 
+		 
+		 */
+		
+	}
+
+	
+}

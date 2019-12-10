@@ -1,0 +1,22 @@
+package com.hk02;
+
+public class Score {
+	public double getAvg(int kor, int eng, int math) {
+		double avg = (kor+eng+math)/3;
+		return avg;
+	}
+	
+	public char getGrage(double avg) {
+		if(avg>90) {
+			return 'A';
+		} else if(avg > 80) {
+			return 'B';
+		} else if(avg > 70) {
+			return 'C';
+		}else if (avg>60) {
+			return 'D';
+		} else {
+			return 'F';
+		}
+	}
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+			<item value="C:\test\API2"/>
+			<item value="C:\Users\Changjin\Desktop\JavaWorkspace\Java14_Abstract_Interface"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\Changjin\Desktop\IO.zip"/>
+			<item value="C:\Users\Changjin\Desktop\ddd.zip"/>
+			<item value=""/>
+		</list>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ResourceNavigator">
+		<item value="Aggregate for window 1550323542553" key="ResourceWorkingSetFilter.STORE_WORKING_SET"/>
+		<item value="1" key="ResourceViewer.STORE_SORT_TYPE"/>
+		<item value="true" key="LINK_NAVIGATOR_TO_EDITOR"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.java"/>
+			<item value="org.eclipse.wst.web.ui"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="267" key="DIALOG_X_ORIGIN"/>
+		<item value="269" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

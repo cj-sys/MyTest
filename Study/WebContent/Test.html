@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TEST Page</title>
+</head>
+<body>
+	<%
+		Connection con = null;
+		String url = jdbc:oracle:thin:@localhost:1521:xe;
+		String driver = "oracle.jdbc.OracleDriver";
+		
+		Calss.forName(driver);
+		con = DriverManager.getConnection(url,"아이디","비밀번호");
+		
+		if(con !=null){
+			out.print("연결되었습니다.");
+		} else {
+			out.print("연결되지 않았습니다.")
+		}
+		
+		con.close();
+	%>
+</body>
+</html>

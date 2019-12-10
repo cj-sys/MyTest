@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<bean id="man" class="com.test02.Man"></bean>
+	<bean id="woman" class="com.test02.Woman"></bean>
+	<bean id="myAspect" class="com.test02.MyAspect"></bean>
+
+	<aop:config>
+		<aop:aspect ref="myAspect">
+			<aop:before method="before" pointcut="execution(public * *(..))"/>
+			<aop:before method="test" pointcut="execution(public void com.test02.Man.*(..))"/>
+			<aop:after method="after" pointcut="execution(public void work())"/>
+			<aop:after method="test" pointcut="execution(public void com.test02.Woman.work())"/>
+		</aop:aspect>		
+	</aop:config>
+
+</beans>
